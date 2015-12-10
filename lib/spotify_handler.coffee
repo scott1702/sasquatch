@@ -288,6 +288,7 @@ class SpotifyHandler
 
   addtoqueue: (track) ->
     strack = @spotify.createFromLink @_sanitize_link(track)
+    console.log(strack)
     if (strack)
       @queue.push strack
 
