@@ -289,7 +289,12 @@ class SpotifyHandler
   addtoqueue: (track) ->
     strack = @spotify.createFromLink @_sanitize_link(track)
     if (strack && strack.isLoaded)
+      console.log(strack)
       @queue.push strack
+    else if strack
+      @spotify.waitForLoaded [strack], (strack) =>
+        console.log(strack)
+        @queue.push strack
 
   # Removes everything that shouldn't be in a link, especially Slack's <> encasing
   _sanitize_link: (link) ->
