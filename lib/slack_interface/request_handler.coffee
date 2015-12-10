@@ -92,7 +92,7 @@ class SlackInterfaceRequestHandler
                     str += "\n*#{key}* (#{@spotify.playlists[key]})"
                   reply_data['text'] = str
 
-              when 'status' || 'stat'
+              when 'status' or 'stat'
                 shuffleword = if @spotify.shuffle then '' else ' not'
                 if @spotify.is_paused()
                   reply_data['text'] = "We are *paused* on a song called *<#{@spotify.state.track.object}|#{@spotify.state.track.name}>* by *#{@spotify.state.track.artists}*.\n The playlist is *<#{@spotify.playlists[@spotify.state.playlist.name]}|#{@spotify.state.playlist.name}>*, and we are#{shuffleword} shufflin'. Resume playback with `play`."
