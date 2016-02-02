@@ -270,10 +270,10 @@ class SpotifyHandler
   list_random: ->
     lists = []
     for key of @playlists
-      lists.push @playlists[key]
+      lists.push key
     listToPlay = lists[Math.floor(Math.random()*lists.length)]
     set_playlist listToPlay
-    return listToPlay
+    listToPlay
 
   # Adds a playlist to the storage and updates our internal list
   add_playlist: (name, spotify_url) ->

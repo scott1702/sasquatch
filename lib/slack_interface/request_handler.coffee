@@ -88,10 +88,10 @@ class SlackInterfaceRequestHandler
                     when 'add' then status = @spotify.add_playlist @auth.args[1], @auth.args[2]
                     when 'remove' then status = @spotify.remove_playlist @auth.args[1]
                     when 'rename' then status = @spotify.rename_playlist @auth.args[1], @auth.args[2]
-                    when 'random' then random = @spotify.list_random
+                    when 'random' then random = true
                     else status = @spotify.set_playlist @auth.args[0]
                   if random
-                    reply_data['text'] = 'Now playing list: ' + random
+                    reply_data['text'] = 'IT DOESN\'T WORK YET STOP TRYING'
                   else if status
                     reply_data['text'] = ['Ok.', 'Sweet.', 'Chur.', 'Done like dinner.', 'sorted.org.nz (use your mouse!)', 'Coolies.', 'No problem, brah.', 'Affirmative.', 'Gotcha.', 'Aye-aye, captain! :captain:'][Math.floor(Math.random() * 10)]
                   else
